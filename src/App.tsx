@@ -1,35 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Box } from '@mui/material';
+import { Header } from './components/Header/Header';
+import ModelBox from './components/ModelBox/ModelBox';
+import { NavBar } from './components/NavBar/NavBar';
+import { ControlPanel } from './components/ControlPanel/ControlPanel';
+import { Footer } from './components/Footer/Footer';
+import { ChangeColorProvider } from './context/ColorContext';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <ChangeColorProvider>
+      <Box sx={{ width: '100vw', height: '100vh', padding: '0 25px 0' }}>
+        <ModelBox />
+        <Header />
+        <NavBar />
+        <ControlPanel />
+        <Footer />
+      </Box>
+    </ChangeColorProvider>
+  );
 }
 
-export default App
+export default App;
