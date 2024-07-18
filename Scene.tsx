@@ -78,7 +78,9 @@ type GLTFResult = GLTF & {
 type whatsCLicked = null | 'Floor' | 'Walls' | 'Door';
 
 export default function Model(props: JSX.IntrinsicElements['group']) {
-  const { nodes, materials } = useGLTF('/scene.gltf') as GLTFResult;
+  const { nodes, materials } = useGLTF(
+    '/3D-React-proj/scene.gltf',
+  ) as GLTFResult;
 
   const { selectedColor } = useChangeColor();
 
@@ -293,4 +295,4 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
   );
 }
 
-useGLTF.preload('/scene.gltf');
+useGLTF.preload('/3D-React-proj/scene.gltf');
