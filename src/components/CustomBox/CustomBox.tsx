@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 
 type Props = {
   children: React.ReactNode;
-  styles?: React.CSSProperties;
+  styles?: React.CSSProperties | any;
   onClick?: () => void;
 };
 

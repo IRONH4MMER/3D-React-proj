@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { IconNames } from './Footer';
 
 type Props = {

@@ -3,7 +3,6 @@ import { CustomBox } from '../CustomBox/CustomBox';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { PaintSelector } from './PaintSelector/PaintSelector';
 import { ShopSelector } from './ShopSelector/ShopSelector';
-import { CustomButton } from '../CustomButton/CustomButton';
 
 function handleClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
   event.preventDefault();

@@ -8,7 +8,7 @@ Title: Low Poly Isometric Room
 */
 
 import * as THREE from 'three';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { GLTF } from 'three-stdlib';
 import { ThreeEvent } from '@react-three/fiber';
@@ -73,13 +73,7 @@ type GLTFResult = GLTF & {
     pages: THREE.MeshStandardMaterial;
     libro: THREE.MeshStandardMaterial;
   };
-  animations: GLTFAction[];
 };
-
-type ContextType = Record<
-  string,
-  React.ForwardRefExoticComponent<JSX.IntrinsicElements['mesh']>
->;
 
 type whatsCLicked = null | 'Floor' | 'Walls' | 'Door';
 

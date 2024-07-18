@@ -1,6 +1,6 @@
 import React from 'react';
 import { generateLoremIpsumPairs } from '../../../utils/loremGenerator';
-import { Children, useState } from 'react';
+import { useState } from 'react';
 
 import {
   Accordion,
@@ -27,6 +27,7 @@ type CustomAccordionProps = {
   children: React.ReactNode;
   initialLimit?: number;
   styles?: React.CSSProperties;
+  quantity?: number;
 };
 
 const CustomAccordion: React.FC<CustomAccordionProps> = ({
@@ -34,6 +35,7 @@ const CustomAccordion: React.FC<CustomAccordionProps> = ({
   children,
   initialLimit = 3,
   styles,
+  quantity,
 }) => {
   const [limit, setLimit] = useState<number>(initialLimit);
   const showMore = () => {
@@ -59,9 +61,7 @@ const CustomAccordion: React.FC<CustomAccordionProps> = ({
         id="panel2-header"
       >
         <Typography>{title}</Typography>
-        <Typography sx={{ color: '#00000066', ml: 1 }}>
-          {Children.toArray(children)[0].props.children.length}
-        </Typography>
+        <Typography sx={{ color: '#00000066', ml: 1 }}>{quantity}</Typography>
       </AccordionSummary>
       <AccordionDetails sx={styles}>
         <ChildrenSlicer children={children} limit={limit} />
@@ -114,7 +114,7 @@ export const PaintSelector = () => {
         </CustomButton>
       </CustomBox>
       <MaterialsGrid />
-      <CustomAccordion title="Brand">
+      <CustomAccordion title="Brand" quantity={pairs.length}>
         <FormGroup>
           {pairs.map((pair, index) => (
             <FormControlLabel
@@ -135,6 +135,7 @@ export const PaintSelector = () => {
           gap: '10px',
         }}
         initialLimit={9}
+        quantity={Object.values(ModelMaterials).length}
       >
         <FormGroup>
           {Object.values(ModelMaterials).map(material => (
