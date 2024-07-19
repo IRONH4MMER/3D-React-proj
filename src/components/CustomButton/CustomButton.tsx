@@ -2,7 +2,7 @@ import { Button } from '@mui/material';
 
 type Props = {
   children: React.ReactNode;
-  styles?: React.CSSProperties | any;
+  styles?: React.CSSProperties | { [key: string]: Object };
   endIcon?: React.ReactNode;
   onClick?: () => void;
   onMouseEnter?: () => void;
